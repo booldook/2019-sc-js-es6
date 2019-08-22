@@ -1,4 +1,5 @@
 <script>
+// 자바스크립트 내장객체 - Array, String, Date, Math
 // 배열에 대해서 알아보자
 const log = console.log;
 const clear = console.clear;
@@ -92,4 +93,64 @@ log(arr3, arr2);
 clear();
 var arr4 = arr3.map(v => v*100);
 log(arr4);
+
+clear();
+// filter
+var students = [
+  {name: "홍길동", kor:95, eng: 80},
+  {name: "홍길순", kor:65, eng: 92},
+  {name: "홍길만", kor:75, eng: 88},
+  {name: "홍길이", kor:85, eng: 72},
+  {name: "홍길룡", kor:55, eng: 50}
+];
+var newStd = students.filter(function(v) {
+  //return 조건
+  return v.kor >=70;
+});
+//log(newStd);
+var newStd = students.filter(v => v.kor >= 70);
+log(newStd);
+
+
+// 반복문
+var arr = ["A", "B", "C", "D", "E"];
+for(var i=0; i<arr.length; i++){}
+arr.forEach((v, i) => {});
+
+// ES6 - Object
+var keys = Object.keys(arr);
+log(keys);
+var values = Object.values(arr);
+log(values);
+var entries = Object.entries(arr);
+log(entries);
+
+for(var i in arr){
+  log(i);
+}
+for(var [k, v] of Object.entries(arr)) {
+  //log(k + "=>" + v);  //ES5
+  log(`${k} => ${v}`);  //ES6
+}
+
+var Human = {
+  name: "홍길동"
+};
+Human.age = 25;
+Human.speak = (name) => {
+  log(name + "입니다.");
+}
+log(Human);
+Human.speak(Human.name);
+
+clear();
+var arr = new Array(1, 2, 3);
+arr.message = "Hello World";
+arr.test = () => {};
+log(arr);
+log(arr.message);
+
+for(var v of arr) {
+  console.log(v);
+}
 </script>
