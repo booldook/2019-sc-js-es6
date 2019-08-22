@@ -1,0 +1,95 @@
+<script>
+// 배열에 대해서 알아보자
+const log = console.log;
+const clear = console.clear;
+// isArray()
+var obj = {
+  a: 10,
+  b: 20
+}; 
+var arr = [1, 2, 3];
+
+log(  Array.isArray(arr)  );
+
+// 배열의 선언, push(), pop(), unshift(), shift(), splice()
+var arr = new Array();
+arr[0] = 1;
+arr[1] = 2;
+arr[2] = 3;
+var arr2 = new Array(1, 2, 3);
+var arr3 = [1, 2, 3];
+var arr4 = [];
+arr4.push(1);
+arr4.push(2);
+arr4.push(3);
+arr4.push(4, 5, 6, 7);
+log(arr, arr2, arr3, arr4);
+
+clear();
+var arr = [];
+arr.unshift(1);
+arr.unshift(2);
+arr.unshift(3);
+log(arr);
+
+var num = arr.pop();
+log(arr, num);
+
+var num = arr.shift();
+log(arr, num);
+
+// arr.splice(자리index, 삭제할 데이터 갯수, ...삭제 후 삽입할 데이터)
+clear();
+var arr = [1, 2, 3, 4, 5];
+var num = arr.splice(1, 2); // [1, 4, 5]
+log(arr, num);
+
+var arr = [1, 2, 3, 4, 5];
+var num = arr.splice(2, 1, 4, 6, 7, 8, 9);
+log(arr, num);
+
+// concat() - 배열 합치기
+clear();
+var arr = [1, 2, 3, 4, 5];
+var arr2 = [6, 7, 8];
+var arr3 = arr.concat(arr2);
+log(arr3, arr, arr2);
+
+// sort
+clear();
+var arr = [1, 17, 12, 5, 8, 7, 9, 13, 11];
+arr.sort();
+log(arr);
+
+/* arr.sort(function(a, b) {
+  return a - b;
+}); */
+arr.sort((a, b) => a - b);
+log(arr);
+
+arr.sort(function(a, b) {
+  return b - a;
+});
+log(arr);
+
+// toString() - 배열을 문자열로 바꾸기
+var str = arr.toString();
+log(str);
+var arr2 = str.split(",");
+log(arr2);
+arr2.forEach(function(v, k){
+  //log(v, k);
+  //arr2[k] = Number(v);
+});
+log(arr2);
+
+// var arr3 = arr2.map(v => Number(v)); //es6
+var arr3 = arr2.map(function(v){
+  return Number(v);
+});
+log(arr3, arr2);
+
+clear();
+var arr4 = arr3.map(v => v*100);
+log(arr4);
+</script>
